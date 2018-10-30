@@ -146,7 +146,7 @@ PolyConnectivity::add_face(const VertexHandle* _vertex_handles, size_t _vhs_size
   {
     if ( !is_boundary(_vertex_handles[i]) )
     {
-      omerr() << "PolyMeshT::add_face: complex vertex\n";
+      //omerr() << "PolyMeshT::add_face: complex vertex\n";
       return InvalidFaceHandle;
     }
 
