@@ -158,7 +158,7 @@ PolyConnectivity::add_face(const VertexHandle* _vertex_handles, size_t _vhs_size
 
     if (!edgeData_[i].is_new && !is_boundary(edgeData_[i].halfedge_handle))
     {
-      omerr() << "PolyMeshT::add_face: complex edge\n";
+      //omerr() << "PolyMeshT::add_face: complex edge\n";
       return InvalidFaceHandle;
     }
   }
@@ -190,7 +190,7 @@ PolyConnectivity::add_face(const VertexHandle* _vertex_handles, size_t _vhs_size
         // ok ?
         if (boundary_prev == inner_prev)
         {
-          omerr() << "PolyMeshT::add_face: patch re-linking failed\n";
+          //omerr() << "PolyMeshT::add_face: patch re-linking failed\n";
           return InvalidFaceHandle;
         }
 
