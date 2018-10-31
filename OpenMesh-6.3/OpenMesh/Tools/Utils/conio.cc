@@ -91,6 +91,9 @@ int getche() { return ::getche(); }
 #endif
 #include <termios.h>   /* tcsetattr()    */
 #include <sys/ioctl.h> /* ioctl()        */
+#include <sys/time.h>
+#include <time.h>
+
 
 namespace OpenMesh {
 namespace Utils {
