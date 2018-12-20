@@ -38,14 +38,14 @@ if (WIN32)
 
   if ( OPENMESH_BUILD_SHARED )
     add_definitions( -DOPENMESHDLL -DBUILDOPENMESHDLL)
-    acg_add_library (OpenMeshCore SHARED ${sources} ${headers})
+    acg_add_library (OpenMeshCore STATIC ${sources} ${headers})
   else()
     # OpenMesh has no dll exports so we have to build a static library on windows
     acg_add_library (OpenMeshCore STATIC ${sources} ${headers})
   endif()
 
 else ()
-  acg_add_library (OpenMeshCore SHAREDANDSTATIC ${sources} ${headers})
+  acg_add_library (OpenMeshCore STATIC ${sources} ${headers})
   set_target_properties (OpenMeshCore PROPERTIES VERSION ${OPENMESH_VERSION_MAJOR}.${OPENMESH_VERSION_MINOR}
                                                SOVERSION ${OPENMESH_VERSION_MAJOR}.${OPENMESH_VERSION_MINOR} )
 

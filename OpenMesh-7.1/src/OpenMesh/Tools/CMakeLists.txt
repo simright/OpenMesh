@@ -39,23 +39,23 @@ if (WIN32)
 
   if ( OPENMESH_BUILD_SHARED )
     add_definitions( -DOPENMESHDLL -DBUILDOPENMESHDLL)
-    acg_add_library (OpenMeshTools SHARED ${sources} ${headers})
+    acg_add_library (OpenMeshTools STATIC ${sources} ${headers})
   else()
     # OpenMesh has no dll exports so we have to build a static library on windows
     acg_add_library (OpenMeshTools STATIC ${sources} ${headers})
   endif()
 
 else ()
-  acg_add_library (OpenMeshTools SHAREDANDSTATIC ${sources} ${headers})
+  acg_add_library (OpenMeshTools STATIC ${sources} ${headers})
   set_target_properties (OpenMeshTools PROPERTIES VERSION ${OPENMESH_VERSION_MAJOR}.${OPENMESH_VERSION_MINOR}
                                                 SOVERSION ${OPENMESH_VERSION_MAJOR}.${OPENMESH_VERSION_MINOR} )
 endif ()
 
 target_link_libraries (OpenMeshTools OpenMeshCore)
 
-IF( NOT WIN32 )
-  target_link_libraries (OpenMeshToolsStatic OpenMeshCoreStatic)
-ENDIF(NOT WIN32)
+#IF( NOT WIN32 )
+#  target_link_libraries (OpenMeshToolsStatic OpenMeshCoreStatic)
+#ENDIF(NOT WIN32)
 
 if ( (${PROJECT_NAME} MATCHES "OpenMesh") AND BUILD_APPS )
 
