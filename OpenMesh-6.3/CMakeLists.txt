@@ -64,7 +64,7 @@ if ( NOT ${PROJECT_NAME} MATCHES "OpenMesh")
 endif()
 
 
-if (WIN32)
+if (MSVC)
   add_definitions(-D_USE_MATH_DEFINES)
 elseif(UNIX)
   add_definitions(-DLINUX)
